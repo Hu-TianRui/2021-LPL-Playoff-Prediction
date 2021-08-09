@@ -3,15 +3,40 @@
 <head>
 <title>2021 LPL 夏季季后赛预测！</title>
 </head>
-
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 <body>
 <p>请做出你的季后赛预测。</p>
 
+
 <p>Game 1</p>
-<td><input type="CheckBox" name="hobby" value="1"/>SN
-<input type="CheckBox" name="hobby" value="1"/>TES
+<td>
+<input type="radio" name="R1" value="OMG"/>OMG
+<input type="radio" name="R1" value="WE"/>WE
 </td>
-  
+<button id="GM1" onclick="chosen()">选定</button>
+
+<script>
+    var omg = 0;
+    var we = 10;
+    function chosen(){
+        $('input:radio[name="R1"]').attr("disabled","disabled");
+    }
+    function G1(){
+    
+    }
+    $('#GM1').click(function(){
+    var val=$('input:radio[name="R1"]:checked').val(); 
+    if(val=="OMG"){
+    omg = 10;
+    document.getElementById("G1W").innerHTML=omg;
+    }
+    else{
+    we = 20;
+    document.getElementById("G1W").innerHTML=we;
+    }
+    });
+</script>
+
+<p id="G1W"></p>
 </body>
 
-</html>
