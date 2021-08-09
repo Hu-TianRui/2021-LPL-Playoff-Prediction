@@ -4,20 +4,29 @@
 <title>2021 LPL 夏季季后赛预测！</title>
 </head>
 <script src="jquery.js"></script>
+
 <body>
 <p>请做出你的季后赛预测。</p>
 
 
 <p>Game 1</p>
+
 <td>
-<input type="radio" name="R1" value="OMG"/>OMG
-<input type="radio" name="R1" value="WE"/>WE
+<label for="OMG" >OMG</label>
+<input type="radio" name="R1" value="OMG"/>
+<label for="WE" >WE</label>
+<input type="radio" name="R1" value="WE"/>
 </td>
 <button id="GM1" onclick="chosen()">选定</button>
 
 <script>
     var omg = 0;
-    var we = 10;
+    var we = 0;
+    var blg = 0;
+    var edg = 0;
+    var ra=0;
+    var G1WE,G2WE,G3WE;
+    var G1WN,G2WN,G3WN;
     function chosen(){
         $('input:radio[name="R1"]').attr("disabled","disabled");
     }
@@ -28,15 +37,109 @@
     var val=$('input:radio[name="R1"]:checked').val(); 
     if(val=="OMG"){
     omg = 10;
+    G1WE = omg;
+    G1WN = "OMG";
     document.getElementById("G1W").innerHTML=omg;
     }
     else{
-    we = 20;
+    we = 10;
+    G1WE = we;
+    G1WN = "WE";
     document.getElementById("G1W").innerHTML=we;
     }
+    document.getElementById("G1N").innerHTML=G1WN;
+    $('#round2').show();
     });
+
+    
 </script>
 
+<div id="round2" style="display:none">
 <p id="G1W"></p>
+<p></p>
+<p>Game 2</p>
+<td>
+<label for="G1" id="G1N"></label>
+<input type="radio" name="R2" value="G1"></input>
+<label for="BLG" >BLG</label>
+<input type="radio" name="R2" value="BLG"/>
+</td>
+<button id="GM2" onclick="chosen2()">选定</button>
+</div>
+
+<script>
+    function chosen2(){
+        $('input:radio[name="R2"]').attr("disabled","disabled");
+    }
+    $('#GM2').click(function(){
+    var val=$('input:radio[name="R2"]:checked').val(); 
+    if(val=="G1"){
+    G1WE += 10;
+    G2WE = G1WE;
+    G2WN = G1WN;
+    document.getElementById("G2W").innerHTML=G2WE;
+    }
+    else{
+    blg = 30;
+    G2WE = blg;
+    G2WN = "BLG";
+    document.getElementById("G2W").innerHTML=blg;
+    }
+    document.getElementById("G2N").innerHTML=G2WN;
+    $('#round3').show();
+    });
+    
+</script>
+
+<div id="round3" style="display:none">
+    <p id="G2W"></p>
+    <p></p>
+    <p>Game 3</p>
+    <td>
+    <label for="G2" id="G2N"></label>
+    <input type="radio" name="R3" value="G2"></input>
+    <label for="RA" >RA</label>
+    <input type="radio" name="R3" value="RA"/>
+    </td>
+    <button id="GM3" onclick="chosen3()">选定</button>
+    </div>
 </body>
 
+<script>
+    function chosen3(){
+        $('input:radio[name="R3"]').attr("disabled","disabled");
+    }
+    $('#GM3').click(function(){
+    var val=$('input:radio[name="R3"]:checked').val(); 
+    if(val=="G2"){
+    G2WE += 10;
+    G3WE = G2WE;
+    G3WN = G2WN;
+    document.getElementById("G3W").innerHTML=G3WE;
+    }
+    else{
+    ra = 70;
+    G3WE = RA;
+    G3WN = "RA";
+    document.getElementById("G3W").innerHTML=ra;
+    }
+    document.getElementById("G3N").innerHTML=G3WN;
+    $('#round4').show();
+    });
+    
+</script>
+
+<div id="round4" style="display:none">
+    <p id="G3W"></p>
+    <p></p>
+    <p>Game 4</p>
+    <td>
+    <label for="G3" id="G3N"></label>
+    <input type="radio" name="R4" value="G3"></input>
+    <label for="EDG" >EDG</label>
+    <input type="radio" name="R4" value="EDG"/>
+    </td>
+    <button id="GM4" onclick="chosen4()">选定</button>
+    </div>
+</body>
+</html>
