@@ -3,12 +3,179 @@
 <head>
 <title>2021 LPL 夏季季后赛预测！</title>
 </head>
-<script src="jquery.js"></script>
-
+<script src="jquery.js">
+</script>
 <body>
 <p>请做出你的季后赛预测。</p>
+<p>上半区</p>
+<p>Game 1</p>
+
+<td>
+<label for="LNG" >LNG</label>
+<input type="radio" name="uR1" value="LNG"/>
+<label for="SN" >SN</label>
+<input type="radio" name="uR1" value="SN"/>
+</td>
+<button id="uGM1" onclick="uchosen()">选定</button>
+
+<script>
+    var srng = 90, sfpx = 70, sedg = 50, stes = 30, ssn = 20, sra = 10, swe = 10;
+    var omg = new Object({ value:0, name:"OMG", svalue: 0,rank : 0});
+    var we = new Object({ value:0, name:"WE", svalue: 10,rank : 0});
+    var blg = new Object({ value:0, name:"BLG", svalue: 0,rank : 0});
+    var edg = new Object({ value:0, name:"EDG", svalue: 50,rank : 0});
+    var ra = new Object({ value:0, name:"RA", svalue: 10,rank :0});
+    var lng = new Object({ value:0, name:"LNG", svalue: 0,rank : 0}),rng = new Object({ value:0, name:"RNG", svalue: 90,rank : 0});
+    var tes = new Object({ value:0, name:"TES", svalue: 30,rank : 0}),sn= new Object({ value:0, name:"SN", svalue: 20,rank : 0});
+    var fpx = new Object({ value:0, name:"FPX", svalue: 70,rank : 0});
+    var G1WE,G2WE,G3WE,uG1WE,uG2WE,uG3WE,G4UWE,G4DWE,G4ULE,G4DLE,B1,S1,L1,B2,FIN;
+    var G1WN,G2WN,G3WN,uG1WN,uG2WN,uG3WN,G4UWN,G4DWN,G4ULN,G4DLN,B1N,S1N,L1N,B2N,FINN;
+    function uchosen(){
+        $('input:radio[name="uR1"]').attr("disabled","disabled");
+    }
+    function addi(obj, num){
+        obj.value += num;
+    }
+    $('#uGM1').click(function(){
+    
+    var val=$('input:radio[name="uR1"]:checked').val(); 
+    if(val=="LNG"){
+    uG1WE = lng;
+    uG1WN = "LNG";
+    
+    }
+    else{
+    uG1WE = sn;
+    uG1WN = "SN";
+    
+    }
+    document.getElementById("uG1N").innerHTML=uG1WN;
+    $('#uround2').show();
+    });
+
+    
+</script>
+
+<div id="uround2" style="display:none">
+
+<p></p>
+<p>Game 2</p>
+<td>
+<label for="uG1" id="uG1N"></label>
+<input type="radio" name="uR2" value="uG1"></input>
+<label for="TES" >TES</label>
+<input type="radio" name="uR2" value="TES"/>
+</td>
+<button id="uGM2" onclick="uchosen2()">选定</button>
+</div>
+
+<script>
+    function uchosen2(){
+        $('input:radio[name="uR2"]').attr("disabled","disabled");
+    }
+    $('#uGM2').click(function(){
+    addi(uG1WE,10);
+    addi(tes,10);
+    var val=$('input:radio[name="uR2"]:checked').val(); 
+    if(val=="uG1"){
+    
+    uG2WE = uG1WE;
+    uG2WN = uG1WN;
+
+    }
+    else{
+    uG2WE = tes;
+    uG2WN = "TES";
+
+    }
+
+    document.getElementById("uG2N").innerHTML=uG2WN;
+    $('#uround3').show();
+    });
+    
+</script>
+
+<div id="uround3" style="display:none">
+
+    <p></p>
+    <p>Game 3</p>
+    <td>
+    <label for="uG2" id="uG2N"></label>
+    <input type="radio" name="uR3" value="uG2"></input>
+    <label for="RNG" >RNG</label>
+    <input type="radio" name="uR3" value="RNG"/>
+    </td>
+    <button id="uGM3" onclick="uchosen3()">选定</button>
+    </div>
+</body>
+
+<script>
+    function uchosen3(){
+        $('input:radio[name="uR3"]').attr("disabled","disabled");
+    }
+    $('#uGM3').click(function(){
+    addi(uG2WE,30);
+    addi(rng,40);
+    var val=$('input:radio[name="uR3"]:checked').val(); 
+    if(val=="uG2"){
+    
+    uG3WE = uG2WE;
+    uG3WN = uG2WN;
+
+    }
+    else{
+
+    uG3WE = rng;
+    uG3WN = "RNG";
+
+    }
+    document.getElementById("uG3N").innerHTML=uG3WN;
+    $('#uround4').show();
+    });
+    
+</script>
+
+<div id="uround4" style="display:none">
+
+    <p></p>
+    <p>Game 4</p>
+    <td>
+    <label for="uG3" id="uG3N"></label>
+    <input type="radio" name="uR4" value="uG3"></input>
+    <label for="FPX" >FPX</label>
+    <input type="radio" name="uR4" value="FPX"/>
+    </td>
+    <button id="uGM4">选定</button>
+</div><br><br>
+<script>
+    $('#uGM4').click(function(){
+    addi(uG3WE,20);
+    addi(fpx,60);
+    var val=$('input:radio[name="uR4"]:checked').val(); 
+    if(val=="uG3"){
+    
+    G4UWE = uG3WE;
+    G4UWN = uG3WN;
+    G4ULE = fpx;
+    G4ULN = "FPX";
+    }
+    else{
+    G4ULE = uG3WE;
+    G4ULN = uG3WN;
+    G4UWE = fpx;
+    G4UWN = "FPX";
+    
+    }
+    $('input:radio[name="uR4"]').attr("disabled","disabled");
+    document.getElementById("G4UW").innerHTML=G4UWN;
+    document.getElementById("G4UL").innerHTML=G4ULN;
+    $('#round0').show();
+    });
+</script>
 
 
+<div id="round0" style="display:none">
+<p>下半区</p>
 <p>Game 1</p>
 
 <td>
@@ -18,15 +185,9 @@
 <input type="radio" name="R1" value="WE"/>
 </td>
 <button id="GM1" onclick="chosen()">选定</button>
-
+</div>
 <script>
-    var omg = 0;
-    var we = 0;
-    var blg = 0;
-    var edg = 0;
-    var ra=0;
-    var G1WE,G2WE,G3WE;
-    var G1WN,G2WN,G3WN;
+
     function chosen(){
         $('input:radio[name="R1"]').attr("disabled","disabled");
     }
@@ -36,16 +197,14 @@
     $('#GM1').click(function(){
     var val=$('input:radio[name="R1"]:checked').val(); 
     if(val=="OMG"){
-    omg = 10;
     G1WE = omg;
     G1WN = "OMG";
-    document.getElementById("G1W").innerHTML=omg;
+
     }
     else{
-    we = 10;
     G1WE = we;
     G1WN = "WE";
-    document.getElementById("G1W").innerHTML=we;
+
     }
     document.getElementById("G1N").innerHTML=G1WN;
     $('#round2').show();
@@ -55,7 +214,7 @@
 </script>
 
 <div id="round2" style="display:none">
-<p id="G1W"></p>
+
 <p></p>
 <p>Game 2</p>
 <td>
@@ -72,18 +231,19 @@
         $('input:radio[name="R2"]').attr("disabled","disabled");
     }
     $('#GM2').click(function(){
+    addi(G1WE,10);
+    addi(blg,10);
     var val=$('input:radio[name="R2"]:checked').val(); 
     if(val=="G1"){
-    G1WE += 10;
+    
     G2WE = G1WE;
     G2WN = G1WN;
-    document.getElementById("G2W").innerHTML=G2WE;
+    
     }
     else{
-    blg = 30;
     G2WE = blg;
     G2WN = "BLG";
-    document.getElementById("G2W").innerHTML=blg;
+
     }
     document.getElementById("G2N").innerHTML=G2WN;
     $('#round3').show();
@@ -92,7 +252,7 @@
 </script>
 
 <div id="round3" style="display:none">
-    <p id="G2W"></p>
+  
     <p></p>
     <p>Game 3</p>
     <td>
@@ -110,18 +270,19 @@
         $('input:radio[name="R3"]').attr("disabled","disabled");
     }
     $('#GM3').click(function(){
+    addi(G2WE,30);
+    addi(ra,40);
     var val=$('input:radio[name="R3"]:checked').val(); 
     if(val=="G2"){
-    G2WE += 10;
+    
     G3WE = G2WE;
     G3WN = G2WN;
-    document.getElementById("G3W").innerHTML=G3WE;
+   
     }
     else{
-    ra = 70;
-    G3WE = RA;
+    G3WE = ra;
     G3WN = "RA";
-    document.getElementById("G3W").innerHTML=ra;
+  
     }
     document.getElementById("G3N").innerHTML=G3WN;
     $('#round4').show();
@@ -130,7 +291,7 @@
 </script>
 
 <div id="round4" style="display:none">
-    <p id="G3W"></p>
+    
     <p></p>
     <p>Game 4</p>
     <td>
@@ -139,7 +300,221 @@
     <label for="EDG" >EDG</label>
     <input type="radio" name="R4" value="EDG"/>
     </td>
-    <button id="GM4" onclick="chosen4()">选定</button>
-    </div>
+    <button id="GM4">选定</button>
+</div>
+
+<script>
+    $('#GM4').click(function(){
+        addi(G3WE,20);
+        addi(edg,60);
+    var val=$('input:radio[name="R4"]:checked').val(); 
+    if(val=="G3"){
+    
+    G4DWE = G3WE;
+    G4DWN = G3WN;
+    G4DLE = edg;
+    G4DLN = "EDG";
+    }
+    else{
+    G4DLE = G3WE;
+    G4DLN = G3WN;
+    G4DWE = edg;
+    G4DWN = "EDG";
+
+    }
+    $('input:radio[name="R4"]').attr("disabled","disabled");
+    document.getElementById("G4DW").innerHTML=G4DWN;
+    document.getElementById("G4DL").innerHTML=G4DLN;
+    $('#r1').show();
+    });
+
+</script>
+
+
+
+<div id="r1" style="display:none">
+<p>双败淘汰战</p>
+<p>败者组第一轮</p>
+<td>
+<label for="FRP1" id="G4UL"></label>
+<input type="radio" name="FR1" value="FRP1"/>
+<label for="FRP2" id="G4DL"></label>
+<input type="radio" name="FR1" value="FRP2"/>
+</td>
+<button id="GM5" onclick="chosen5()">选定</button>
+</div>
+<script>
+
+    function chosen5(){
+        $('input:radio[name="FR1"]').attr("disabled","disabled");
+    }
+    $('#GM5').click(function(){
+    var val=$('input:radio[name="FR1"]:checked').val(); 
+    if(val=="FRP1"){
+    B1 = G4ULE;
+    B1N = G4ULN;
+    }
+    else{
+    B1 = G4DLE;
+    B1N = G4DLN;
+    }
+    addi(B1,20);
+    document.getElementById("G6N").innerHTML=B1N;
+    $('#round6').show();
+    });
+
+    
+</script>
+
+<div id="round6" style="display:none">
+<p></p>
+<p>胜者组决赛</p>
+<td>
+    <label for="FRP3" id="G4UW"></label>
+    <input type="radio" name="FR2" value="FRP3"/>
+    <label for="FRP4" id="G4DW"></label>
+    <input type="radio" name="FR2" value="FRP4"/>
+    </td>
+    <button id="GM6" onclick="chosen6()">选定</button>
+</div>
+
+<script>
+    function chosen6(){
+        $('input:radio[name="FR2"]').attr("disabled","disabled");
+    }
+    $('#GM6').click(function(){
+
+    var val=$('input:radio[name="FR2"]:checked').val(); 
+    if(val=="FRP3"){
+    
+    S1 = G4UWE;
+    S1N = G4UWN;
+    L1 = G4DWE;
+    L1N = G4DWN;
+    document.getElementById("G7N").innerHTML=L1N;
+    document.getElementById("G8N").innerHTML=S1N;
+    }
+    else{
+    S1 = G4DWE;
+    S1N = G4DWN;
+    L1 = G4UWE;
+    L1N = G4UWN;
+    document.getElementById("G7N").innerHTML=L1N;
+    document.getElementById("G8N").innerHTML=S1N;
+    
+    }
+    addi(S1,50);
+    addi(L1,20);
+
+
+    $('#round7').show();
+    });
+    
+</script>
+
+<div id="round7" style="display:none">
+    <p></p>
+    <p>败者组决赛</p>
+    <td>
+    <label for="FPR5" id="G7N"></label>
+    <input type="radio" name="FR3" value="FPR5"></input>
+    <label for="FPR6" id="G6N"></label>
+    <input type="radio" name="FR3" value="FPR6"/>
+    </td>
+    <button id="GM7" onclick="chosen7()">选定</button>
+</div>
+
+
+<script>
+    function chosen7(){
+        $('input:radio[name="FR3"]').attr("disabled","disabled");
+    }
+    $('#GM7').click(function(){
+
+    var val=$('input:radio[name="FR3"]:checked').val(); 
+    if(val=="FPR5"){
+    B2 = L1;
+    B2N = L1N;
+    }
+    else{
+    B2 = B1;
+    B2N = B1N;
+    }
+    addi(B2,30);
+    document.getElementById("G8X").innerHTML=B2N;
+    $('#round9').show();
+    });
+    
+</script>
+
+<div id="round9" style="display:none">
+    <p>总决赛</p>
+    <td>
+    <label for="F1" id="G8N"></label>
+    <input type="radio" name="FF" value="F1"></input>
+    <label for="F2" id="G8X"></label>
+    <input type="radio" name="FF" value="F2"/>
+    </td>
+    <button id="FFF" onclick="chosen4()">选定</button>
+</div>
+
+<script>
+    $('#FFF').click(function(){
+    var val=$('input:radio[name="FF"]:checked').val(); 
+    if(val=="F1"){
+    
+    FIN = S1;
+    FINN = S1N;
+    }
+    else{
+
+    FIN = B2;
+    FINN = B2N;
+    }
+
+    addi(FIN,90);
+    $('#result').show();
+    });
+</script>
+<div id="result" style="display:none">
+<button id="test0" onclick="test()">查看结果</button>
+</div>
+<script>
+function test(){
+    var listo = [fpx,edg,rng,ra,tes,blg,omg,we,sn,lng];
+    var listname = ["fpx","edg","rng","ra","tes","blg","omg","we","sn","lng"];
+
+    for (i=0;i<listo.length;i++)
+{
+
+    listo[i].rank = (listo[i].value+listo[i].svalue) * 1000 + listo[i].value;
+}
+listo.sort(function(a,b){
+    return b.rank - a.rank
+});
+document.write("总排名<br />");
+document.write("一号种子<br />");
+document.write(listo[0].name + "<br />");
+document.write((listo[0].value+listo[0].svalue) + "<br />");
+document.write("二号种子<br />");
+document.write(listo[1].name + "<br />");
+document.write((listo[1].value+listo[1].svalue) + "<br />");
+document.write("冒泡赛<br />");
+for (i=2;i<6;i++)
+{   
+    document.write(listo[i].name + "<br />");
+    document.write((listo[i].value+listo[i].svalue) + "<br />");
+}
+document.write("寄了<br />");
+for (i=6;i<listo.length;i++)
+{   
+    document.write(listo[i].name + "<br />");
+    document.write((listo[i].value+listo[i].svalue) + "<br />");
+}
+document.write("胡堆制作<br />");
+}
+</script>
+
+
 </body>
 </html>
